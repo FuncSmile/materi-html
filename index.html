@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materi HTML - 3 Hari</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 60px;
+            min-height: 600px;
+        }
+
+        .slide.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 4px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .slide h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .slide h3 {
+            color: #555;
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .slide p, .slide li {
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .slide ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .code-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+
+        .day-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: #f8f9fa;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            color: #666;
+            font-weight: bold;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Slide 1: Intro -->
+        <div class="slide active">
+            <h1>🎓 Belajar HTML dari Nol</h1>
+            <h2>Program 3 Hari</h2>
+            <p style="font-size: 1.2em; margin-top: 30px;">Selamat datang di pembelajaran HTML! Dalam 3 hari, kamu akan menguasai dasar-dasar HTML.</p>
+            
+            <h3 style="margin-top: 50px;">📋 Rencana Pembelajaran:</h3>
+            <ul style="font-size: 1.15em;">
+                <li><strong>Hari 1:</strong> Pengenalan HTML & Struktur Dasar</li>
+                <li><strong>Hari 2:</strong> Elemen-elemen Penting HTML</li>
+                <li><strong>Hari 3:</strong> Tabel, Form & Project Akhir</li>
+            </ul>
+
+            <p style="margin-top: 40px; font-style: italic; color: #666;">Klik tombol "Next" untuk memulai pembelajaran!</p>
+        </div>
+
+        <!-- Slide 2: Hari 1 - Intro -->
+        <div class="slide">
+            <span class="day-badge">HARI 1</span>
+            <h1>Pengenalan HTML</h1>
+            
+            <h2>Apa itu HTML?</h2>
+            <p><strong>HTML</strong> (HyperText Markup Language) adalah bahasa markup untuk membuat halaman web. HTML bukan bahasa pemrograman, tapi bahasa markup yang memberitahu browser bagaimana menampilkan konten.</p>
+
+            <h3>Kenapa Belajar HTML?</h3>
+            <ul>
+                <li>Dasar dari semua website di internet</li>
+                <li>Mudah dipelajari untuk pemula</li>
+                <li>Fondasi untuk belajar CSS dan JavaScript</li>
+                <li>Skill penting untuk web developer</li>
+            </ul>
+        </div>
+
+        <!-- Slide 3: Struktur Dasar HTML -->
+        <div class="slide">
+            <span class="day-badge">HARI 1</span>
+            <h1>Struktur Dasar HTML</h1>
+            
+            <p>Setiap dokumen HTML memiliki struktur dasar seperti ini:</p>
+
+            <div class="code-box">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Judul Halaman&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Hello World!&lt;/h1&gt;
+    &lt;p&gt;Ini paragraf pertama saya.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </div>
+
+            <h3>Penjelasan:</h3>
+            <ul>
+                <li><span class="highlight">&lt;!DOCTYPE html&gt;</span> - Deklarasi tipe dokumen</li>
+                <li><span class="highlight">&lt;html&gt;</span> - Root element</li>
+                <li><span class="highlight">&lt;head&gt;</span> - Informasi meta tentang dokumen</li>
+                <li><span class="highlight">&lt;body&gt;</span> - Konten yang terlihat di browser</li>
+            </ul>
+        </div>
+
+        <!-- Slide 4: Tag Heading & Paragraph -->
+        <div class="slide">
+            <span class="day-badge">HARI 1</span>
+            <h1>Heading dan Paragraph</h1>
+            
+            <h2>Heading (h1 - h6)</h2>
+            <p>Heading digunakan untuk judul dan sub-judul. Ada 6 level heading:</p>
+
+            <div class="code-box">
+&lt;h1&gt;Heading 1 - Paling Besar&lt;/h1&gt;
+&lt;h2&gt;Heading 2&lt;/h2&gt;
+&lt;h3&gt;Heading 3&lt;/h3&gt;
+&lt;h4&gt;Heading 4&lt;/h4&gt;
+&lt;h5&gt;Heading 5&lt;/h5&gt;
+&lt;h6&gt;Heading 6 - Paling Kecil&lt;/h6&gt;
+            </div>
+
+            <h2>Paragraph</h2>
+            <div class="code-box">
+&lt;p&gt;Ini adalah paragraf.&lt;/p&gt;
+&lt;p&gt;Ini paragraf kedua.&lt;/p&gt;
+            </div>
+        </div>
+
+        <!-- Slide 5: Hari 2 - Intro -->
+        <div class="slide">
+            <span class="day-badge">HARI 2</span>
+            <h1>Elemen-elemen Penting HTML</h1>
+            
+            <h2>Yang Akan Dipelajari Hari Ini:</h2>
+            <ul style="font-size: 1.15em;">
+                <li>Link dan Gambar</li>
+                <li>List (Ordered & Unordered)</li>
+                <li>Format Text</li>
+                <li>Div dan Span</li>
+            </ul>
+
+            <p style="margin-top: 30px;">Mari kita mulai dengan Link dan Gambar!</p>
+        </div>
+
+        <!-- Slide 6: Link & Image -->
+        <div class="slide">
+            <span class="day-badge">HARI 2</span>
+            <h1>Link dan Gambar</h1>
+            
+            <h2>Link (Anchor Tag)</h2>
+            <div class="code-box">
+&lt;a href="https://google.com"&gt;Klik di sini&lt;/a&gt;
+&lt;a href="halaman2.html"&gt;Ke Halaman 2&lt;/a&gt;
+&lt;a href="mailto:email@example.com"&gt;Email Saya&lt;/a&gt;
+            </div>
+
+            <h2>Gambar</h2>
+            <div class="code-box">
+&lt;img src="foto.jpg" alt="Deskripsi gambar"&gt;
+&lt;img src="https://example.com/logo.png" 
+     alt="Logo" width="200"&gt;
+            </div>
+
+            <p><strong>Tips:</strong> Atribut <span class="highlight">alt</span> penting untuk accessibility!</p>
+        </div>
+
+        <!-- Slide 7: Lists -->
+        <div class="slide">
+            <span class="day-badge">HARI 2</span>
+            <h1>Lists dalam HTML</h1>
+            
+            <h2>Unordered List (Bullet Points)</h2>
+            <div class="code-box">
+&lt;ul&gt;
+    &lt;li&gt;Item pertama&lt;/li&gt;
+    &lt;li&gt;Item kedua&lt;/li&gt;
+    &lt;li&gt;Item ketiga&lt;/li&gt;
+&lt;/ul&gt;
+            </div>
+
+            <h2>Ordered List (Numbering)</h2>
+            <div class="code-box">
+&lt;ol&gt;
+    &lt;li&gt;Langkah 1&lt;/li&gt;
+    &lt;li&gt;Langkah 2&lt;/li&gt;
+    &lt;li&gt;Langkah 3&lt;/li&gt;
+&lt;/ol&gt;
+            </div>
+        </div>
+
+        <!-- Slide 8: Text Formatting -->
+        <div class="slide">
+            <span class="day-badge">HARI 2</span>
+            <h1>Format Text</h1>
+            
+            <div class="code-box">
+&lt;b&gt;Text Bold&lt;/b&gt;
+&lt;strong&gt;Text Penting (Bold)&lt;/strong&gt;
+
+&lt;i&gt;Text Italic&lt;/i&gt;
+&lt;em&gt;Text Ditekankan (Italic)&lt;/em&gt;
+
+&lt;u&gt;Text Underline&lt;/u&gt;
+&lt;mark&gt;Text Highlight&lt;/mark&gt;
+
+&lt;small&gt;Text Kecil&lt;/small&gt;
+&lt;del&gt;Text Dicoret&lt;/del&gt;
+
+&lt;br&gt; &lt;!-- Line break --&gt;
+&lt;hr&gt; &lt;!-- Horizontal line --&gt;
+            </div>
+        </div>
+
+        <!-- Slide 9: Hari 3 - Intro -->
+        <div class="slide">
+            <span class="day-badge">HARI 3</span>
+            <h1>Tabel, Form & Project</h1>
+            
+            <h2>Hari Terakhir!</h2>
+            <p>Hari ini kita akan belajar:</p>
+            <ul style="font-size: 1.15em;">
+                <li>Membuat Tabel</li>
+                <li>Membuat Form Input</li>
+                <li>Semantic HTML</li>
+                <li>Project Akhir: Membuat CV Online</li>
+            </ul>
+        </div>
+
+        <!-- Slide 10: Tables -->
+        <div class="slide">
+            <span class="day-badge">HARI 3</span>
+            <h1>Tabel HTML</h1>
+            
+            <div class="code-box">
+&lt;table border="1"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Nama&lt;/th&gt;
+            &lt;th&gt;Umur&lt;/th&gt;
+            &lt;th&gt;Kota&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Andi&lt;/td&gt;
+            &lt;td&gt;25&lt;/td&gt;
+            &lt;td&gt;Jakarta&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Budi&lt;/td&gt;
+            &lt;td&gt;30&lt;/td&gt;
+            &lt;td&gt;Bandung&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+            </div>
+        </div>
+
+        <!-- Slide 11: Forms -->
+        <div class="slide">
+            <span class="day-badge">HARI 3</span>
+            <h1>Form HTML</h1>
+            
+            <div class="code-box">
+&lt;form action="/submit" method="POST"&gt;
+    &lt;label&gt;Nama:&lt;/label&gt;
+    &lt;input type="text" name="nama" required&gt;
+    
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input type="email" name="email"&gt;
+    
+    &lt;label&gt;Password:&lt;/label&gt;
+    &lt;input type="password" name="pass"&gt;
+    
+    &lt;label&gt;Pesan:&lt;/label&gt;
+    &lt;textarea name="pesan"&gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Kirim&lt;/button&gt;
+&lt;/form&gt;
+            </div>
+        </div>
+
+        <!-- Slide 12: Semantic HTML -->
+        <div class="slide">
+            <span class="day-badge">HARI 3</span>
+            <h1>Semantic HTML</h1>
+            
+            <p>Semantic tags memberikan makna pada struktur halaman:</p>
+
+            <div class="code-box">
+&lt;header&gt;
+    &lt;nav&gt;Menu navigasi&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h1&gt;Judul Artikel&lt;/h1&gt;
+        &lt;p&gt;Konten artikel...&lt;/p&gt;
+    &lt;/article&gt;
+    
+    &lt;aside&gt;Sidebar&lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Copyright 2025&lt;/p&gt;
+&lt;/footer&gt;
+            </div>
+        </div>
+
+        <!-- Slide 13: Project Akhir -->
+        <div class="slide">
+            <span class="day-badge">HARI 3</span>
+            <h1>🎯 Project Akhir: CV Online</h1>
+            
+            <h2>Tugas Anda:</h2>
+            <p>Buat halaman CV online dengan elemen berikut:</p>
+
+            <ul>
+                <li>Header dengan nama dan foto profil</li>
+                <li>Bagian "Tentang Saya"</li>
+                <li>Daftar pengalaman kerja (list)</li>
+                <li>Tabel keahlian</li>
+                <li>Form kontak</li>
+                <li>Footer dengan sosial media links</li>
+            </ul>
+
+            <h3 style="margin-top: 30px;">Tips:</h3>
+            <ul>
+                <li>Gunakan semantic HTML</li>
+                <li>Jangan lupa atribut alt pada gambar</li>
+                <li>Struktur kode dengan rapi</li>
+            </ul>
+        </div>
+
+        <!-- Slide 14: Kesimpulan -->
+        <div class="slide">
+            <h1>🎉 Selamat!</h1>
+            
+            <h2>Kamu Telah Menyelesaikan Pembelajaran HTML 3 Hari</h2>
+
+            <h3 style="margin-top: 40px;">Yang Sudah Dipelajari:</h3>
+            <ul style="font-size: 1.1em;">
+                <li>✅ Struktur dasar HTML</li>
+                <li>✅ Heading dan Paragraph</li>
+                <li>✅ Link dan Gambar</li>
+                <li>✅ Lists dan Format Text</li>
+                <li>✅ Tabel dan Form</li>
+                <li>✅ Semantic HTML</li>
+            </ul>
+
+            <h3 style="margin-top: 40px;">Langkah Selanjutnya:</h3>
+            <ul style="font-size: 1.1em;">
+                <li>Belajar CSS untuk styling</li>
+                <li>Belajar JavaScript untuk interaktivitas</li>
+                <li>Praktek membuat berbagai project</li>
+            </ul>
+
+            <p style="margin-top: 50px; font-size: 1.3em; text-align: center; color: #667eea;">
+                <strong>Keep Learning & Keep Coding! 💻</strong>
+            </p>
+        </div>
+
+        <div class="navigation">
+            <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">14</span>
+            </span>
+            <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        showSlide(0);
+    </script>
+</body>
+</html>
